@@ -15,11 +15,60 @@ class Index extends React.Component {
             </head>
             <body>
                 <div>
-                    {nfts.map((nft) => {
-                        return (
-                            <img src={`${nft.img}`}></img>
-                        )
-                    })}
+                    <header>
+                        <img src={'/images/medusa-head.png'}></img>
+                        <h1>MEDUSA'S LAIR</h1>
+                    </header>
+                    <div className='navigation'>
+                        <nav>
+                            <a href={'#'}>LATEST PRODUCTS</a>
+                            <a href={'#'}>BRANDS</a>
+                            <a href={'#'}>SHOP</a>
+                            <a href={'#'}>CREDITS</a>
+                        </nav>
+                    </div>
+                    <div className='shop'>
+                        <div className='legend'>
+                            <ul>
+                                <li>
+                                    <strong>SHOP</strong>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Category</summary>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Price Range</summary>
+                                    </details>
+                                </li>
+                                <li>
+                                    <details>
+                                        <summary>Shipping</summary>
+                                    </details>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className='products'>
+                            {nfts.map((nft) => {
+                                return (
+                                    <div className="product">
+                                        <img src={`${nft.img}`}></img>
+                                        <h3 className='productName'>
+                                            {nft.name}
+                                        </h3>
+                                        <h3 className='productPrice'>
+                                            $25
+                                        </h3>
+                                        <button className='productButton'>Add to Cart</button>
+                                    </div>
+
+                                )
+                            })}
+                        </div>
+                    </div>
+                    
                 </div>
             </body>
             </html>

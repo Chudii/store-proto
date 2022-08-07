@@ -1,7 +1,77 @@
 * {
     background-color: aqua;
+    box-sizing: border-box;
+}
+
+header {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    border-bottom: 3px solid black;
+}
+
+header img {
+    width: 4vw;
+}
+
+.navigation {
+    display: flex;
+    height: 10vh;
+}
+
+.navigation nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+}
+
+a {
+    text-decoration: none;
+}
+
+.shop {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.legend {
+    height: 25vh;
+    width: 10vw;
+    display: flex;
+    position: relative;
+    float: left;
+    line-height: 4vh;
+}
+
+.legend ul {
+    list-style-type: none;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vw;
+    max-width: 75vw;
+    column-gap: 7vw;
+    row-gap: 5vw;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    line-height: 1vh;
+}
+
+.productButton {
+    justify-self: center;
+    width: 5vw;
 }
 
 img {
-    width: 25vw;
+    width: 12vw;
 }
