@@ -1,6 +1,8 @@
-* {
-    background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap');
+
+* {    
     box-sizing: border-box;
+    font-family: 'Josefin Slab', serif;
 }
 
 header {
@@ -8,7 +10,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4vw;
+    gap: 3vw;
     border-bottom: 3px solid black;
 }
 
@@ -17,6 +19,7 @@ header img {
 }
 
 .navigation {
+    background-color: #CCCCCC;
     display: flex;
     height: 10vh;
 }
@@ -34,12 +37,16 @@ a {
 }
 
 .shop {
+    width: 100%;
+    background-color: #CCCCCC;
     display: flex;
     justify-content: space-around;
-    
+    padding-bottom: 10vh;
 }
 
 .legend {
+    background-color: white;
+    border: 2px solid black;
     height: 25vh;
     width: 10vw;
     display: flex;
@@ -49,6 +56,7 @@ a {
 }
 
 .legend ul {
+    background-color: white;
     list-style-type: none;
 }
 
@@ -68,10 +76,61 @@ a {
 }
 
 .productButton {
-    justify-self: center;
+    margin: auto;
     width: 5vw;
+    height: 3vh;
 }
 
 img {
     width: 12vw;
+}
+
+.footer {
+    width: 100%;
+    padding: 5vh 15%;
+    background: #555555;
+    color: white;
+    display: flex;
+}
+
+.footer div {
+    text-align: center;
+}
+
+.col-2 {
+    flex-grow: 2;
+}
+
+.footer div h3 {
+    font-weight: 300;
+    margin-bottom: 4vh;
+    letter-spacing: 1px;
+}
+
+.col-1 a, .col-3 a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 1vh;
+}
+
+form input {
+    width: 20vw;
+    height: 5vh;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 6vh;
+    outline: none;
+    border: none;
+}
+
+form button {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 1vh 1vw;
+    /* font-size: 1em; */
+    cursor: pointer;
 }
