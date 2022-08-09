@@ -1,9 +1,8 @@
 const React = require('react')
 
-class Index extends React.Component {
-
+class Show extends React.Component {
     render() {
-        const { nfts } = this.props
+        const { nft } = this.props
 
         return (
             <html lang="en">
@@ -12,7 +11,7 @@ class Index extends React.Component {
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>NFT Index</title>
-                <link rel="stylesheet" href="/css/index.css"></link>
+                <link rel="stylesheet" href="/css/show.css"></link>
             </head>
             <body background='/images/cave-background.jpg'>
                 <div>
@@ -35,49 +34,18 @@ class Index extends React.Component {
                             </nav>
                         </div>
                         <div className='shop'>
-                            <div className='legend'>
-                                <ul>
-                                    <li>
-                                        <strong>SHOP</strong>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Category</summary>
-                                        </details>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Price Range</summary>
-                                        </details>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Shipping</summary>
-                                        </details>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className='products'>
-                                {nfts.map((nft) => {
-                                    return (
-                                        <div className="product">
-                                            <a href={`/api/v1/nfts/${nft.id}`}>
-                                                <img src={`${nft.img}`}></img>
-                                            </a>
-                                            <h3 className='productName'>
-                                                {nft.name}
-                                            </h3>
-                                            <h3 className='productPrice'>
-                                                ${nft.price}
-                                            </h3>
-                                            <h3 className='stock'>
-                                                Amount Remaining: {nft.quantity}
-                                            </h3>
-                                            <button className='productButton'>Add to Cart</button>
-                                        </div>
-
-                                    )
-                                })}
+                            <div className="product">
+                                <img src={`${nft.img}`}></img>
+                                <h3 className='productName'>
+                                    {nft.name}
+                                </h3>
+                                <h3 className='productPrice'>
+                                    ${nft.price}
+                                </h3>
+                                <h3 className='stock'>
+                                    Amount Remaining: {nft.quantity}
+                                </h3>
+                                <button className='productButton'>Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -114,4 +82,4 @@ class Index extends React.Component {
     }
 }
 
-module.exports = Index
+module.exports = Show

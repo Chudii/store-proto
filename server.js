@@ -40,6 +40,15 @@ app.get('/api/v1/nfts/new', (req, res) => {
     res.render('New')
 })
 
+
+app.get('/api/v1/nfts/:id', (req, res) => {
+    Nft.findById(req.params.id, (err, foundNft) => {
+        res.render('Show', {
+            nft: foundNft
+        })
+    })
+})
+
 app.listen(port, () => {
     console.log(`*** Listening on http://localhost:${port}/api/v1/nfts ***`)
 })

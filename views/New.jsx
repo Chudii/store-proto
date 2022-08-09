@@ -25,8 +25,8 @@ class New extends React.Component {
                     <div className="middle">
                         <div className='navigation'>
                             <nav>
-                                <a href={'#'}>LATEST PRODUCTS</a>
-                                <a href={'#'}>BRANDS</a>
+                                <a href={'/api/v1/nfts'}>HOME</a>
+                                <a href={'/api/v1/nfts/new'}>MINT NFT</a>
                                 <a href={'#'}>SHOP</a>
                                 <a href={'#'}>CREDITS</a>
                             </nav>
