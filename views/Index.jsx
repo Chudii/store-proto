@@ -28,7 +28,7 @@ class Index extends React.Component {
                         <div className='navigation'>
                             <nav>
                                 <a href={'#'}>LATEST PRODUCTS</a>
-                                <a href={'#'}>BRANDS</a>
+                                <a href={'/api/v1/nfts/new'}>MINT NFT</a>
                                 <a href={'#'}>SHOP</a>
                                 <a href={'#'}>CREDITS</a>
                             </nav>
@@ -65,7 +65,10 @@ class Index extends React.Component {
                                                 {nft.name}
                                             </h3>
                                             <h3 className='productPrice'>
-                                                $25
+                                                ${nft.price}
+                                            </h3>
+                                            <h3 className='stock'>
+                                                Amount Remaining: {nft.quantity}
                                             </h3>
                                             <button className='productButton'>Add to Cart</button>
                                         </div>

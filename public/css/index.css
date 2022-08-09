@@ -85,8 +85,6 @@ nav {
       to right,
       black,
       black
-      /* rgba(100, 200, 200, 1),
-      rgba(100, 200, 200, 1) */
     ),
     linear-gradient(
       to right,
@@ -220,6 +218,5 @@ form button {
     color: #fff;
     border-radius: 30px;
     padding: 1vh 1vw;
-    /* font-size: 1em; */
     cursor: pointer;
 }
