@@ -49,7 +49,7 @@ header img {
 }
 
 .middle {
-    height: 50vh;
+    height: auto;
     min-width: 100%;
     min-height: 100%;
     background-image: url('/public/images/cave-background.jpg') no-repeat center contain;
