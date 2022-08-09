@@ -37,7 +37,7 @@ class New extends React.Component {
                                 Quantity <input type='number' name='quantity'/><br/>
                                 Image <input type='text' name='img'/><br/>
                                 Price <input type='number' name='price'/><br/>
-                                <input type='submit' name='' value='Mint New NFT'/>
+                                <input className='new' type='submit' name='' value='Mint New NFT'/>
                             </form>
                         </div>
                     </div>

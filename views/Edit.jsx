@@ -1,6 +1,6 @@
 const React = require('react')
 
-class Show extends React.Component {
+class Edit extends React.Component {
     render() {
         const { nft } = this.props
 
@@ -11,7 +11,7 @@ class Show extends React.Component {
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>NFT Index</title>
-                <link rel="stylesheet" href="/css/show.css"></link>
+                <link rel="stylesheet" href="/css/new.css"></link>
             </head>
             <body background='/images/cave-background.jpg'>
                 <div>
@@ -34,32 +34,13 @@ class Show extends React.Component {
                             </nav>
                         </div>
                         <div className='shop'>
-                            <div className="product">
-                                <img src={`${nft.img}`}></img>
-                                <h3 className='productName'>
-                                    {nft.name}
-                                </h3>
-                                <h3 className='productPrice'>
-                                    ${nft.price}
-                                </h3>
-                                <h3 className='stock'>
-                                    Amount Remaining: {nft.quantity}
-                                </h3>
-                                <form action={`/api/v1/nfts/${nft.id}?_method=DELETE`} method='POST'>
-                                    <div className='buttons'>
-                                        <a href={`/api/v1/nfts/${nft.id}/edit`}>
-                                            <button className='edit'>Edit this NFT</button>
-                                        </a>
-                                        <a href={`/api/v1/nfts/${nft.id}`}>
-                                            <button className='delete' type='submit'>Delete this NFT</button>
-                                        </a>
-                                        <a>
-                                            <button className='productButton'>Add to Cart</button>
-                                        </a>
-                                        
-                                    </div>
-                                </form>
-                            </div>
+                            <form action={`/api/v1/nfts/${nft.id}?_method=PUT`} method="POST">
+                                Name: <input type='text' name='name' value={nft.name}/><br/>
+                                Quantity <input type='number' name='quantity' value={nft.quantity}/><br/>
+                                Image <input type='text' name='img' value={nft.img}/><br/>
+                                Price <input type='number' name='price' value={nft.price}/><br/>
+                                <input className='edit' type='submit' name='' value='Edit NFT'/>
+                            </form>
                         </div>
                     </div>
                     
@@ -95,4 +76,4 @@ class Show extends React.Component {
     }
 }
 
-module.exports = Show
+module.exports = Edit

@@ -131,6 +131,26 @@ nav {
     height: 3vh;
 }
 
+.edit {
+    background: linear-gradient(0deg, rgba(77,94,237,1) 16%, rgba(77,166,237,1) 100%);
+    border: 0.5px solid rgb(43, 65, 85);
+    border-radius: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.new {
+    background: linear-gradient(0deg, rgba(207,156,33,1) 34%, rgba(252,203,99,1) 95%);
+    border: 0.5px solid rgb(126, 104, 43);
+    border-radius: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
 .footer {
     border-radius: 10px;
     box-shadow: -1rem 0 3rem #000;

@@ -124,6 +124,35 @@ nav {
     border: 0.5px solid black;
 }
 
+.buttons {
+    display: flex;
+    justify-self: center;
+}
+
+.buttons button {
+    height: 3vh;
+    border-radius: 5px;
+}
+
+.edit {
+    background: linear-gradient(0deg, rgba(77,94,237,1) 16%, rgba(77,166,237,1) 100%);
+    border: 0.5px solid rgb(43, 65, 85);
+    color: white;
+}
+
+.delete {
+    background: linear-gradient(0deg, rgba(152,50,50,1) 0%, rgba(237,77,77,1) 100%);
+    border: 0.5px solid rgb(107, 48, 48);
+    color: white;
+}
+
+.productButton {
+    border: 0.5px solid black;
+}
+
+.buttons a{
+    margin: auto;
+}
 
 .footer {
     border-radius: 10px;

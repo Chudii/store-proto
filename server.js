@@ -49,6 +49,32 @@ app.get('/api/v1/nfts/:id', (req, res) => {
     })
 })
 
+app.get('/api/v1/nfts/:id/edit', (req, res) => {
+    Nft.findById(req.params.id, (err, foundNft) => {
+        if (!err) {
+            res.render('Edit', {
+                nft: foundNft
+            })
+        } else {
+            res.send({ message: err.message })
+        }
+    })
+})
+
+app.put('/api/v1/nfts/:id', (req, res) => {
+    Nft.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    }, (err, nft) => {
+        res.redirect(`/api/v1/nfts/${req.params.id}`)
+    })
+})
+
+app.delete('/api/v1/nfts/:id', (req, res) => {
+    Nft.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/api/v1/nfts')
+    })
+})
+
 app.listen(port, () => {
     console.log(`*** Listening on http://localhost:${port}/api/v1/nfts ***`)
 })
