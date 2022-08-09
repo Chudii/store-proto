@@ -13,64 +13,69 @@ class Index extends React.Component {
                 <title>NFT Index</title>
                 <link rel="stylesheet" href="/css/index.css"></link>
             </head>
-            <body>
+            <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <img src={'/images/medusa-head.png'}></img>
+                        <img className='login-avatar' src='/images/login-avatar.png'></img>
+                        <img className='cart-icon' src='/images/cart-icon.png'></img>
+                        <img src='/images/medusa-head.png'></img>
                         <div className="text">
                             <h1>MEDUSA'S LAIR</h1>
                             <h3>The world's first reimagined NFT marketplace.</h3>
                         </div>
                     </header>
-                    <div className='navigation'>
-                        <nav>
-                            <a href={'#'}>LATEST PRODUCTS</a>
-                            <a href={'#'}>BRANDS</a>
-                            <a href={'#'}>SHOP</a>
-                            <a href={'#'}>CREDITS</a>
-                        </nav>
-                    </div>
-                    <div className='shop'>
-                        <div className='legend'>
-                            <ul>
-                                <li>
-                                    <strong>SHOP</strong>
-                                </li>
-                                <li>
-                                    <details>
-                                        <summary>Category</summary>
-                                    </details>
-                                </li>
-                                <li>
-                                    <details>
-                                        <summary>Price Range</summary>
-                                    </details>
-                                </li>
-                                <li>
-                                    <details>
-                                        <summary>Shipping</summary>
-                                    </details>
-                                </li>
-                            </ul>
+                    <div className="middle">
+                        <div className='navigation'>
+                            <nav>
+                                <a href={'#'}>LATEST PRODUCTS</a>
+                                <a href={'#'}>BRANDS</a>
+                                <a href={'#'}>SHOP</a>
+                                <a href={'#'}>CREDITS</a>
+                            </nav>
                         </div>
-                        <div className='products'>
-                            {nfts.map((nft) => {
-                                return (
-                                    <div className="product">
-                                        <img src={`${nft.img}`}></img>
-                                        <h3 className='productName'>
-                                            {nft.name}
-                                        </h3>
-                                        <h3 className='productPrice'>
-                                            $25
-                                        </h3>
-                                        <button className='productButton'>Add to Cart</button>
-                                    </div>
+                        <div className='shop'>
+                            <div className='legend'>
+                                <ul>
+                                    <li>
+                                        <strong>SHOP</strong>
+                                    </li>
+                                    <li>
+                                        <details>
+                                            <summary>Category</summary>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details>
+                                            <summary>Price Range</summary>
+                                        </details>
+                                    </li>
+                                    <li>
+                                        <details>
+                                            <summary>Shipping</summary>
+                                        </details>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='products'>
+                                {nfts.map((nft) => {
+                                    return (
+                                        <div className="product">
+                                            <img src={`${nft.img}`}></img>
+                                            <h3 className='productName'>
+                                                {nft.name}
+                                            </h3>
+                                            <h3 className='productPrice'>
+                                                $25
+                                            </h3>
+                                            <button className='productButton'>Add to Cart</button>
+                                        </div>
 
-                                )
-                            })}
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
+                    
                     <div className='footer'>
                         <div className="col-1">
                             <h3>USEFUL LINKS</h3>

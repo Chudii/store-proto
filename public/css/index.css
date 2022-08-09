@@ -5,40 +5,106 @@
     font-family: 'Josefin Slab', serif;
 }
 
+body {
+    background-size: contain;
+}
+
 header {
+    background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
+    color: black;
     height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3vw;
-    border-bottom: 3px solid black;
+    box-shadow: -1rem 0 3rem #000;
+    border-radius: 10px;
+}
+
+header h3, header h1 {
+    font-weight: 600;
 }
 
 header img {
     width: 4vw;
 }
 
+.login-avatar {
+    width: 1.5vw;
+    position: absolute;
+    top: 2vh;
+    right: 4vw;
+}
+
+.login-avatar:hover {
+    box-shadow: -1rem 0 3rem #000;
+}
+
+.cart-icon {
+    width: 1.5vw;
+    position: absolute;
+    top: 2vh;
+    right: 1.25vw;
+}
+
+.middle {
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url('/public/images/cave-background.jpg') no-repeat center contain;
+}
+
 .navigation {
-    background-color: #CCCCCC;
+    width: 100%;
     display: flex;
-    height: 10vh;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background-color: black;
+    height: 7vh;
+    width: 60%;
 }
 
 .navigation nav {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5vw;
 }
 
-a {
+.navigation a {
     text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25em;
+    background:
+    linear-gradient(
+      to right,
+      black,
+      black
+      /* rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1) */
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+}
+
+.navigation a:hover {
+    background-size: 0 2px, 100% 2px;
 }
 
 .shop {
-    width: 100%;
-    background-color: #CCCCCC;
+    width: 100%;   
     display: flex;
     justify-content: space-around;
     padding-bottom: 10vh;
@@ -47,7 +113,7 @@ a {
 .legend {
     background-color: white;
     border: 2px solid black;
-    height: 25vh;
+    height: fit-content;
     width: 10vw;
     display: flex;
     position: relative;
@@ -65,15 +131,27 @@ a {
     flex-wrap: wrap;
     width: 75vw;
     max-width: 75vw;
-    column-gap: 7vw;
+    column-gap: 5vw;
     row-gap: 5vw;
 }
 
 .product {
+    position: relative;
+    padding: 2vh;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+    background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
     display: flex;
     flex-direction: column;
     line-height: 1vh;
+    transition: transform 1s;
 }
+
+.product:hover {
+    transform: scale(1.05);
+    transition: 0.4s ease-out;
+}
+
 
 .productButton {
     margin: auto;
@@ -81,13 +159,24 @@ a {
     height: 3vh;
 }
 
+.product img {
+    border: 0.5px solid black;
+}
+
+.product h3 {
+    font-weight: 300;
+}
+
 img {
     width: 12vw;
 }
 
 .footer {
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
     width: 100%;
-    padding: 5vh 15%;
+    padding: 3vh 15%;
     background: #555555;
     color: white;
     display: flex;
