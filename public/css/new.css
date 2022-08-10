@@ -38,7 +38,7 @@ header img {
 }
 
 .login-avatar:hover {
-    box-shadow: -1rem 0 3rem #000;
+    opacity: 0.6;
 }
 
 .cart-icon {
@@ -129,6 +129,10 @@ nav {
 
 .shop form input {
     height: 3vh;
+}
+
+.inputBars {
+    font-weight: 600;
 }
 
 .edit {

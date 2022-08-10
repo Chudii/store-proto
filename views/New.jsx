@@ -14,9 +14,13 @@ class New extends React.Component {
             <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <img className='login-avatar' src='/images/login-avatar.png'></img>
+                        <a className='loginAnchor' href='/api/v1/nfts/login'>
+                            <img className='login-avatar' src='/images/login-avatar.png'></img>
+                        </a>
                         <img className='cart-icon' src='/images/cart-icon.png'></img>
-                        <img src='/images/medusa-head.png'></img>
+                        <a href='/api/v1/nfts'>
+                            <img src='/images/medusa-head.png'></img>
+                        </a>
                         <div className="text">
                             <h1>MEDUSA'S LAIR</h1>
                             <h3>The world's first reimagined NFT marketplace.</h3>
@@ -33,10 +37,10 @@ class New extends React.Component {
                         </div>
                         <div className='shop'>
                             <form action='/api/v1/nfts' method="POST">
-                                Name: <input type='text' name='name'/><br/>
-                                Quantity <input type='number' name='quantity'/><br/>
-                                Image <input type='text' name='img'/><br/>
-                                Price <input type='number' name='price'/><br/>
+                                Name: <input className='inputBars' type='text' name='name'/><br/>
+                                Quantity <input className='inputBars' type='number' name='quantity'/><br/>
+                                Image <input className='inputBars' type='text' name='img'/><br/>
+                                Price <input className='inputBars' type='number' name='price'/><br/>
                                 <input className='new' type='submit' name='' value='Mint New NFT'/>
                             </form>
                         </div>
@@ -54,7 +58,7 @@ class New extends React.Component {
                         <div className="col-2">
                             <h3>NEWSLETTER</h3>
                             <form>
-                                <input type='text' placeholder='Your Email Address' required/>
+                                <input className='inputBars' type='text' placeholder='Your Email Address' required/>
                                 <br></br>
                                 <button type='submit'>SUBSCRIBE NOW</button>
                             </form>

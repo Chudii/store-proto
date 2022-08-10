@@ -16,9 +16,13 @@ class Show extends React.Component {
             <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <img className='login-avatar' src='/images/login-avatar.png'></img>
+                        <a className='loginAnchor' href='/api/v1/nfts/login'>
+                            <img className='login-avatar' src='/images/login-avatar.png'></img>
+                        </a>
                         <img className='cart-icon' src='/images/cart-icon.png'></img>
-                        <img src='/images/medusa-head.png'></img>
+                        <a href='/api/v1/nfts'>
+                            <img src='/images/medusa-head.png'></img>
+                        </a>
                         <div className="text">
                             <h1>MEDUSA'S LAIR</h1>
                             <h3>The world's first reimagined NFT marketplace.</h3>
@@ -45,20 +49,31 @@ class Show extends React.Component {
                                 <h3 className='stock'>
                                     Amount Remaining: {nft.quantity}
                                 </h3>
-                                <form action={`/api/v1/nfts/${nft.id}?_method=DELETE`} method='POST'>
-                                    <div className='buttons'>
+                                <div className='buttons'>
+                                    <div className='buttonDiv'>
                                         <a href={`/api/v1/nfts/${nft.id}/edit`}>
                                             <button className='edit'>Edit this NFT</button>
                                         </a>
-                                        <a href={`/api/v1/nfts/${nft.id}`}>
-                                            <button className='delete' type='submit'>Delete this NFT</button>
-                                        </a>
-                                        <a>
-                                            <button className='productButton'>Add to Cart</button>
-                                        </a>
-                                        
                                     </div>
-                                </form>
+                                    <div className='buttonDiv'>
+                                        <form action={`/api/v1/nfts/${nft.id}?_method=DELETE`} method='POST'>
+                                            <a href={`/api/v1/nfts/${nft.id}`}>
+                                                <button className='delete' type='submit'>Delete this NFT</button>
+                                            </a>
+                                        </form>
+                                    </div>
+                                    <div className='buttonDiv'>
+                                        <form>
+                                            <a>
+                                                <button className='productButton'>Add to Cart</button>
+                                            </a>
+                                        </form>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

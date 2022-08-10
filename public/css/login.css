@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap');
+
+* {    
+    box-sizing: border-box;
+    font-family: 'Josefin Slab', serif;
+}
+
+body {
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
+    color: black;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+    box-shadow: -1rem 0 3rem #000;
+    border-radius: 10px;
+}
+
+header h3, header h1 {
+    font-weight: 600;
+}
+
+header img {
+    width: 4vw;
+}
+
+.login-avatar {
+    width: 1.5vw;
+    position: absolute;
+    top: 2vh;
+    right: 4vw;
+}
+
+.login-avatar:hover {
+    opacity: 0.6;
+}
+
+.cart-icon {
+    width: 1.5vw;
+    position: absolute;
+    top: 2vh;
+    right: 1.25vw;
+}
+
+.middle {
+    height: 80vh;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.shop {
+    height: 34vh;
+    margin-top: -10vh;
+    box-shadow: -1rem 0 3rem #000;
+    border-radius: 10px;
+    padding: 2vh 0;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.shop form {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 15vw;
+}
+
+.shop form input {
+    height: 3vh;
+}
+
+.inputBars {
+    font-weight: 600;
+}
+
+.register {
+    background: linear-gradient(0deg, rgba(129,33,207,1) 24%, rgba(194,99,252,1) 95%);
+    border: 0.5px solid rgb(100, 43, 126);
+    border-radius: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.login {
+    background: linear-gradient(0deg, rgba(33,207,170,1) 35%, rgba(122,228,138,1) 98%);
+    border: 0.5px solid rgb(43, 126, 122);
+    border-radius: 5px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.newMember {
+    text-decoration: none;
+    color: black;
+}

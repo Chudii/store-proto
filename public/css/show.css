@@ -38,7 +38,7 @@ header img {
 }
 
 .login-avatar:hover {
-    box-shadow: -1rem 0 3rem #000;
+    opacity: 0.6;
 }
 
 .cart-icon {
@@ -150,7 +150,7 @@ nav {
     border: 0.5px solid black;
 }
 
-.buttons a{
+.buttonDiv {
     margin: auto;
 }
 
@@ -196,6 +196,10 @@ nav {
     margin-bottom: 6vh;
     outline: none;
     border: none;
+}
+
+.inputBars {
+    font-weight: 600;
 }
 
 .footer button {
