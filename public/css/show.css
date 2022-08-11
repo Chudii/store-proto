@@ -34,11 +34,18 @@ header img {
     width: 1.5vw;
     position: absolute;
     top: 2vh;
-    right: 4vw;
+    right: 1.5vw;
 }
 
-.login-avatar:hover {
+.top-corner:hover {
     opacity: 0.6;
+}
+
+.username {
+    position: absolute;
+    top: 0.8vh;
+    right: 3.5vw;
+    color: black;
 }
 
 .cart-icon {
@@ -162,8 +169,7 @@ nav {
     background: linear-gradient(0deg, rgba(48,48,48,1) 0%, rgba(105,105,105,1) 100%);
     color: white;
     display: flex;
-    position: absolute;
-    bottom: -35vh;
+    margin-top: 10vh;
 }
 
 .footer div {

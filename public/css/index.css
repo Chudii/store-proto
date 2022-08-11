@@ -34,24 +34,24 @@ header img {
     width: 1.5vw;
     position: absolute;
     top: 2vh;
-    right: 4vw;
+    right: 1.5vw;
 }
 
-.login-avatar:hover {
+.top-corner:hover {
     opacity: 0.6;
-}
-
-.cart-icon {
-    width: 1.5vw;
-    position: absolute;
-    top: 2vh;
-    right: 1.25vw;
 }
 
 .middle {
     min-width: 100%;
     min-height: 100%;
     background-image: url('/public/images/cave-background.jpg') no-repeat center contain;
+}
+
+.username {
+    position: absolute;
+    top: 0.8vh;
+    right: 3.5vw;
+    color: black;
 }
 
 .navigation {
@@ -159,7 +159,8 @@ nav {
 }
 
 .product img {
-    border: 0.5px solid black;
+    height: 12vw;
+    object-fit: contain;
 }
 
 .product h3 {

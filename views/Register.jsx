@@ -14,10 +14,11 @@ class Register extends React.Component {
             <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <a className='loginAnchor' href='/api/v1/nfts/login'>
-                            <img className='login-avatar' src='/images/login-avatar.png'></img>
-                        </a>
-                        <img className='cart-icon' src='/images/cart-icon.png'></img>
+                        <div className='top-corner'>
+                            <a className='loginAnchor' href='/api/v1/nfts/profile'>
+                                <img className='login-avatar' src='/images/login-avatar.png'></img>
+                            </a>
+                        </div>
                         <a href='/api/v1/nfts'>
                             <img src='/images/medusa-head.png'></img>
                         </a>

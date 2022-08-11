@@ -31,21 +31,15 @@ header img {
 }
 
 .login-avatar {
+    display: none;
     width: 1.5vw;
     position: absolute;
     top: 2vh;
-    right: 4vw;
+    right: 1.5vw;
 }
 
-.login-avatar:hover {
+.top-corner:hover {
     opacity: 0.6;
-}
-
-.cart-icon {
-    width: 1.5vw;
-    position: absolute;
-    top: 2vh;
-    right: 1.25vw;
 }
 
 .middle {

@@ -2,7 +2,7 @@ const React = require('react')
 
 class Edit extends React.Component {
     render() {
-        const { nft } = this.props
+        const { nft, username } = this.props
 
         return (
             <html lang="en">
@@ -16,10 +16,12 @@ class Edit extends React.Component {
             <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <a className='loginAnchor' href='/api/v1/nfts/login'>
-                            <img className='login-avatar' src='/images/login-avatar.png'></img>
-                        </a>
-                        <img className='cart-icon' src='/images/cart-icon.png'></img>
+                        <div className='top-corner'>
+                            <a className='loginAnchor' href='/api/v1/nfts/profile'>
+                                <h3 className='username'>{username}</h3>
+                                <img className='login-avatar' src='/images/login-avatar.png'></img>
+                            </a>
+                        </div>
                         <a href='/api/v1/nfts'>
                             <img src='/images/medusa-head.png'></img>
                         </a>
@@ -39,10 +41,10 @@ class Edit extends React.Component {
                         </div>
                         <div className='shop'>
                             <form action={`/api/v1/nfts/${nft.id}?_method=PUT`} method="POST">
-                                Name: <input type='text' name='name' value={nft.name}/><br/>
-                                Quantity <input type='number' name='quantity' value={nft.quantity}/><br/>
-                                Image <input type='text' name='img' value={nft.img}/><br/>
-                                Price <input type='number' name='price' value={nft.price}/><br/>
+                                Name: <input className='inputBars' type='text' name='name' value={nft.name}/><br/>
+                                Quantity <input className='inputBars' type='number' name='quantity' value={nft.quantity}/><br/>
+                                Image <input className='inputBars' type='text' name='img' value={nft.img}/><br/>
+                                Price <input className='inputBars' type='number' name='price' value={nft.price}/><br/>
                                 <input className='edit' type='submit' name='' value='Edit NFT'/>
                             </form>
                         </div>

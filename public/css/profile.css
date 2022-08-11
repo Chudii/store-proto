@@ -31,21 +31,19 @@ header img {
 }
 
 .login-avatar {
+    display: none;
     width: 1.5vw;
     position: absolute;
     top: 2vh;
     right: 1.5vw;
 }
 
-.top-corner:hover {
-    opacity: 0.6;
+.top-corner {
+    display: none;
 }
 
-.username {
-    position: absolute;
-    top: 0.8vh;
-    right: 3.5vw;
-    color: black;
+.top-corner:hover {
+    opacity: 0.6;
 }
 
 .middle {
@@ -111,48 +109,50 @@ nav {
 .shop {  
     box-shadow: -1rem 0 3rem #000;
     border-radius: 10px;
-    padding: 2vh 0;
+    padding: 5vh;
     width: 28vw;
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: space-around;
     background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
 }
 
-.shop form {
-    height: 32vh;
+.product img {
+    width: 20vw;
+    border: 0.5px solid black;
+}
+
+.buttons {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 15vw;
+    justify-self: center;
+    margin: auto;
 }
 
-.shop form input {
+.buttons button {
     height: 3vh;
-}
-
-.inputBars {
-    font-weight: 600;
+    width: 4vw;
+    border-radius: 5px;
 }
 
 .edit {
     background: linear-gradient(0deg, rgba(77,94,237,1) 16%, rgba(77,166,237,1) 100%);
     border: 0.5px solid rgb(43, 65, 85);
-    border-radius: 5px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
     color: white;
 }
 
-.new {
-    background: linear-gradient(0deg, rgba(207,156,33,1) 34%, rgba(252,203,99,1) 95%);
-    border: 0.5px solid rgb(126, 104, 43);
-    border-radius: 5px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+.delete {
+    background: linear-gradient(0deg, rgba(152,50,50,1) 0%, rgba(237,77,77,1) 100%);
+    border: 0.5px solid rgb(107, 48, 48);
     color: white;
+}
+
+.productButton {
+    border: 0.5px solid black;
+}
+
+.buttonDiv {
+    margin: auto;
 }
 
 .footer {
@@ -164,7 +164,7 @@ nav {
     color: white;
     display: flex;
     position: absolute;
-    bottom: -4vh;
+    bottom: -35vh;
 }
 
 .footer div {
@@ -197,6 +197,10 @@ nav {
     margin-bottom: 6vh;
     outline: none;
     border: none;
+}
+
+.inputBars {
+    font-weight: 600;
 }
 
 .footer button {

@@ -17,7 +17,6 @@ class Login extends React.Component {
                         <a className='loginAnchor' href='/api/v1/nfts/login'>
                             <img className='login-avatar' src='/images/login-avatar.png'></img>
                         </a>
-                        <img className='cart-icon' src='/images/cart-icon.png'></img>
                         <a href='/api/v1/nfts'>
                             <img src='/images/medusa-head.png'></img>
                         </a>

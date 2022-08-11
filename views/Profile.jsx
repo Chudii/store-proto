@@ -1,9 +1,8 @@
 const React = require('react')
 
-class Index extends React.Component {
-
+class Profile extends React.Component {
     render() {
-        const { nfts, username } = this.props
+        const { user } = this.props
 
         return (
             <html lang="en">
@@ -12,14 +11,14 @@ class Index extends React.Component {
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>NFT Index</title>
-                <link rel="stylesheet" href="/css/index.css"></link>
+                <link rel="stylesheet" href="/css/profile.css"></link>
             </head>
             <body background='/images/cave-background.jpg'>
                 <div>
                     <header>
-                        <div className='top-corner'>
+                    <div className='top-corner'>
                             <a className='loginAnchor' href='/api/v1/nfts/profile'>
-                                <h3 className='username'>{username}</h3>
+                                <h3 className='username'>{user.username}</h3>
                                 <img className='login-avatar' src='/images/login-avatar.png'></img>
                             </a>
                         </div>
@@ -41,50 +40,19 @@ class Index extends React.Component {
                             </nav>
                         </div>
                         <div className='shop'>
-                            
-                            <div className='legend'>
-                                <ul>
-                                    <li>
-                                        <strong>SHOP</strong>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Category</summary>
-                                        </details>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Price Range</summary>
-                                        </details>
-                                    </li>
-                                    <li>
-                                        <details>
-                                            <summary>Shipping</summary>
-                                        </details>
-                                    </li>
-                                </ul>
+                            <div className='profile'>
+                                <h3 className='username'>
+                                    Username: {user.username}
+                                </h3>
+                                <h3 className='joined'>
+                                    Date Joined: {`${user.joined.getMonth() + 1}/${user.joined.getDate()}/${user.joined.getFullYear()}`}
+                                </h3>
+                                <h3 className='purchased'>
+                                    Purchased NFTs: 
+                                </h3>
                             </div>
-                            <div className='products'>
-                                {nfts.map((nft) => {
-                                    return (
-                                        <div className="product">
-                                            <a href={`/api/v1/nfts/${nft.id}`}>
-                                                <img src={`${nft.img}`}></img>
-                                            </a>
-                                            <h3 className='productName'>
-                                                {nft.name}
-                                            </h3>
-                                            <h3 className='productPrice'>
-                                                ${nft.price}
-                                            </h3>
-                                            <h3 className='stock'>
-                                                Stock Remaining: {nft.quantity}
-                                            </h3>
-                                            <button className='productButton'>Buy Now</button>
-                                        </div>
-
-                                    )
-                                })}
+                            <div className='buttons'>
+                                <a href='/api/v1/nfts/logout'><button>Logout</button></a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +69,7 @@ class Index extends React.Component {
                         <div className="col-2">
                             <h3>NEWSLETTER</h3>
                             <form>
-                                <input className='inputBars' type='text' placeholder='Your Email Address' required/>
+                                <input type='text' placeholder='Your Email Address' required/>
                                 <br></br>
                                 <button type='submit'>SUBSCRIBE NOW</button>
                             </form>
@@ -121,4 +89,4 @@ class Index extends React.Component {
     }
 }
 
-module.exports = Index
+module.exports = Profile

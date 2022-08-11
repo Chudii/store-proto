@@ -2,24 +2,19 @@ const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const connectEnsureLogin = require('connect-ensure-login')
 const LocalStrategy = require('passport-local').Strategy
-const passportLocalMongoose = require('passport-local-mongoose')
-// const initializePassport = require('./utilities/passport-config')
-// initializePassport(passport, username => users.find(user => user.username === username))
+
 const Nft = require('./models/nfts')
 const User = require('./models/user')
 const nftData = require('./utilities/nftData')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 3003
-
-const secret = process.env.JWT_SECRET
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -38,7 +33,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 }
+    cookie: { maxAge: 60 * 60 * 1000 }
 }))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -59,7 +54,6 @@ passport.use(new LocalStrategy(
             if (await bcrypt.compare(password, user.password)) {
                 return done(null, user)
             }
-            
         })
     }
 ))
@@ -80,45 +74,10 @@ app.post('/api/v1/nfts', (req, res) => {
 })
 
 app.get('/api/v1/nfts/new', (req, res) => {
-    res.render('New')
+    res.render('New', { 
+        username: req.user.username
+    })
 })
-
-// app.get('/api/v1/nfts/change-password', (req, res) => {
-//     res.render('Change-Pasword')
-// })
-
-// // USER ROUTE
-// app.post('/api/v1/nfts/change-password', async (req, res) => {
-//     const { token, newPassword: plainTextPassword } = req.body
-
-//     if (!plainTextPassword || typeof plainTextPassword !== 'string') {
-//         return res.json({ status: 'error', error: 'Invalid Password' })
-//     }
-
-//     if (plainTextPassword.length < 6) {
-//         return res.json({ status: 'error', error: 'Password is too small. Should be at least 6 characters' })
-//     }
-
-//     try {
-//         const user = jwt.verify(token, secret)
-//         const _id = user.id
-        
-//         const password = await bcrypt.hash(plainTextPassword, 10)
-
-//         await User.updateOne(
-//             { _id },
-//             {
-//                 $set: { password }
-//             }
-//         )
-//         res.json({ status: 'ok' })
-//     } catch (error) {
-//         res.json({ status: 'error ', error: 'Some error'})
-//     }
-    
-
-//     res.json({ status: 'ok' })
-// })
 
 // USER ROUTE
 app.get('/api/v1/nfts/login', (req, res) => {
@@ -184,47 +143,27 @@ app.post('/api/v1/nfts/register', async (req, res) => {
     }
 })
 
-// USER ROUTE
-// app.post('/api/v1/nfts/register', async (req, res) => {
+app.get('/api/v1/nfts/profile', (req, res) => {
+    res.render('Profile', {
+        user: req.user
+    })
+})
 
-//     const { username, password: plainTextPassword } = req.body
-
-//     if (!username || typeof username !== 'string') {
-//         return res.json({ status: 'error', error: 'Invalid Username' })
-//     }
-
-//     if (!plainTextPassword || typeof plainTextPassword !== 'string') {
-//         return res.json({ status: 'error', error: 'Invalid Password' })
-//     }
-
-//     if (plainTextPassword.length < 6) {
-//         return res.json({ status: 'error', error: 'Password is too small. Should be at least 6 characters' })
-//     }
-
-//     const password = await bcrypt.hash(plainTextPassword, 10)
-//     try {
-//         const response = await User.create({
-//             username,
-//             password
-//         })
-//         res.redirect('/api/v1/nfts/login')
-//         console.log('User created successful: ', response)
-//     } catch (error) {
-//         if (error.code === 11000) {
-//             // duplicate key
-//             return res.json({ status: 'error', error: 'Username already in use' })
-//         }
-//         res.redirect('/api/v1/nfts/register')
-//         throw error
-//     }
-//     res.json({ status: 'ok' })
-// })
+app.get('/api/v1/nfts/logout', (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err)
+        }
+    })
+    res.redirect('/api/v1/nfts/login')
+})
 
 
 app.get('/api/v1/nfts/:id', (req, res) => {
     Nft.findById(req.params.id, (err, foundNft) => {
         res.render('Show', {
-            nft: foundNft
+            nft: foundNft,
+            username: req.user.username
         })
     })
 })
@@ -233,7 +172,8 @@ app.get('/api/v1/nfts/:id/edit', (req, res) => {
     Nft.findById(req.params.id, (err, foundNft) => {
         if (!err) {
             res.render('Edit', {
-                nft: foundNft
+                nft: foundNft,
+                username: req.user.username
             })
         } else {
             res.send({ message: err.message })
