@@ -73,7 +73,7 @@ app.post('/api/v1/nfts', (req, res) => {
     })
 })
 
-app.get('/api/v1/nfts/new', (req, res) => {
+app.get('/api/v1/nfts/new', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
     res.render('New', { 
         username: req.user.username
     })
@@ -89,7 +89,6 @@ app.post('/api/v1/nfts/login', passport.authenticate('local', {
         failureRedirect: '/api/v1/nfts/login',
     }
 ), (req, res) => {
-    console.log(req.user)
     res.redirect('/api/v1/nfts')
 })
 
@@ -143,23 +142,53 @@ app.post('/api/v1/nfts/register', async (req, res) => {
     }
 })
 
-app.get('/api/v1/nfts/profile', (req, res) => {
+app.get('/api/v1/nfts/profile', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
     res.render('Profile', {
         user: req.user
+    })
+})
+
+app.get('/api/v1/nfts/:id/receipt', async (req, res) => {
+    // User.updateOne(req.user._id, { $push: { purchased: req.params.id  } })
+    
+    Nft.findById(req.params.id, (errOne, foundNft) => {
+        if (errOne) throw new Error(errOne)
+        User.updateOne({ _id: req.user._id }, { $push: { purchased: foundNft } }, (errTwo, foundUser) => {
+            if (errTwo) throw new Error(errTwo)
+            res.render('Receipt', {
+                nft: foundNft,
+                user: req.user
+            })
+        })
+    })
+    
+})
+
+app.put('/api/v1/nfts/:id/checkout', (req, res) => {
+    Nft.findByIdAndUpdate(req.params.id, { $inc: { quantity: -(req.body.quantity) } },(err, foundNft) => {
+        res.redirect(`/api/v1/nfts/${req.params.id}/receipt`)
     })
 })
 
 app.get('/api/v1/nfts/logout', (req, res, next) => {
     req.logout((err) => {
         if (err) {
-            return next(err)
+            return next()
         }
     })
     res.redirect('/api/v1/nfts/login')
 })
 
+app.get('/api/v1/nfts/:id/checkout', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
+    Nft.findById(req.params.id, (err, foundNft) => {
+        res.render('Checkout', {
+            nft: foundNft,
+            user: req.user
+        })
+    })
+})
 
-app.get('/api/v1/nfts/:id', (req, res) => {
+app.get('/api/v1/nfts/:id', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
     Nft.findById(req.params.id, (err, foundNft) => {
         res.render('Show', {
             nft: foundNft,
@@ -168,7 +197,7 @@ app.get('/api/v1/nfts/:id', (req, res) => {
     })
 })
 
-app.get('/api/v1/nfts/:id/edit', (req, res) => {
+app.get('/api/v1/nfts/:id/edit', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
     Nft.findById(req.params.id, (err, foundNft) => {
         if (!err) {
             res.render('Edit', {
@@ -185,7 +214,7 @@ app.put('/api/v1/nfts/:id', (req, res) => {
     Nft.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     }, (err, nft) => {
-        res.redirect(`/api/v1/nfts/${req.params.id}`)
+        res.redirect(`/api/v1/nfts`)
     })
 })
 

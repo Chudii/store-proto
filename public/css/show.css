@@ -133,12 +133,29 @@ nav {
 
 .buttons {
     display: flex;
+    align-items: center;
     justify-self: center;
+    
 }
 
 .buttons button {
     height: 3vh;
     border-radius: 5px;
+}
+
+.buttons input {
+    width: 5vw;
+    height: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons form {
+    margin-left: auto;
+    column-gap: 3vw;
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
 .edit {

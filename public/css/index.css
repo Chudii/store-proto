@@ -153,9 +153,12 @@ nav {
 
 
 .productButton {
-    margin: auto;
     width: 5vw;
     height: 3vh;
+}
+
+.buyLink {
+    margin: auto;
 }
 
 .product img {

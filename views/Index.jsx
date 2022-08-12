@@ -75,12 +75,15 @@ class Index extends React.Component {
                                                 {nft.name}
                                             </h3>
                                             <h3 className='productPrice'>
-                                                ${nft.price}
+                                                Best Offer: ${nft.price}
                                             </h3>
                                             <h3 className='stock'>
                                                 Stock Remaining: {nft.quantity}
                                             </h3>
-                                            <button className='productButton'>Buy Now</button>
+                                            <a className='buyLink' href={`/api/v1/nfts/${nft.id}/checkout`}>
+                                                <button className='productButton'>Buy Now</button>
+                                            </a>
+                                            
                                         </div>
 
                                     )

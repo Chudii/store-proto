@@ -1,9 +1,8 @@
 const React = require('react')
 
-class Show extends React.Component {
+class Checkout extends React.Component {
     render() {
-        const { nft, username } = this.props
-
+        const { nft, user } = this.props
         return (
             <html lang="en">
             <head>
@@ -18,7 +17,7 @@ class Show extends React.Component {
                     <header>
                         <div className='top-corner'>
                             <a className='loginAnchor' href='/api/v1/nfts/profile'>
-                                <h3 className='username'>{username}</h3>
+                                <h3 className='username'>{user.username}</h3>
                                 <img className='login-avatar' src='/images/login-avatar.png'></img>
                             </a>
                         </div>
@@ -46,29 +45,19 @@ class Show extends React.Component {
                                     {nft.name}
                                 </h3>
                                 <h3 className='productPrice'>
-                                    Best Offer: ${nft.price}
+                                    Offer Price per Stock: ${nft.price}
                                 </h3>
                                 <h3 className='stock'>
                                     Stock Remaining: {nft.quantity}
                                 </h3>
                                 <div className='buttons'>
-                                    <div className='buttonDiv'>
-                                        <a href={`/api/v1/nfts/${nft.id}/edit`}>
-                                            <button className='edit'>Edit this NFT</button>
-                                        </a>
-                                    </div>
-                                    <div className='buttonDiv'>
-                                        <form action={`/api/v1/nfts/${nft.id}?_method=DELETE`} method='POST'>
-                                            <a href={`/api/v1/nfts/${nft.id}`}>
-                                                <button className='delete' type='submit'>Delete this NFT</button>
-                                            </a>
-                                        </form>
-                                    </div>
-                                    <div className='buttonDiv'>
-                                        <a href={`/api/v1/nfts/${nft.id}/checkout`}>
-                                            <button className='productButton'>Buy Now</button>
-                                        </a>
-                                    </div>
+                                    <h3>Quantity: </h3>
+                                    <form action={`/api/v1/nfts/${nft.id}/checkout?_method=PUT`} method='POST'>
+                                        <input className='inputBars' name="quantity" type='number' min={0} max={nft.quantity}/>
+                                        <div className='buttonDiv'>
+                                            <button type='submit' className='productButton' name=''>Purchase Stocks</button>
+                                        </div>
+                                    </form>
                                     
                                     
                                     
@@ -110,4 +99,4 @@ class Show extends React.Component {
     }
 }
 
-module.exports = Show
+module.exports = Checkout

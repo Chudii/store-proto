@@ -7,8 +7,7 @@ const userSchema = new mongoose.Schema(
         username: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         joined: { type: Date, default: Date },
-        cart: [],
-        purchased: []
+        purchased: [{ name: String, quantity: Number, img: String, price: Number }]
     }, 
     { collection: 'users' }
 )
