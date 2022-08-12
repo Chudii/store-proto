@@ -48,13 +48,6 @@ header img {
     color: black;
 }
 
-.cart-icon {
-    width: 1.5vw;
-    position: absolute;
-    top: 2vh;
-    right: 1.25vw;
-}
-
 .middle {
     height: auto;
     min-width: 100%;
