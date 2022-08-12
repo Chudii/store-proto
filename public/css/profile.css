@@ -50,7 +50,6 @@ header img {
     height: auto;
     min-width: 100%;
     min-height: 100%;
-    background-image: url('/public/images/cave-background.jpg') no-repeat center contain;
     display: flex;
     flex-direction: column;
     align-items: center;

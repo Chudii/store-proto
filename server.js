@@ -4,14 +4,12 @@ const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
 const bodyParser = require('body-parser')
 const passport = require('passport')
-const flash = require('express-flash')
 const session = require('express-session')
 const connectEnsureLogin = require('connect-ensure-login')
 const LocalStrategy = require('passport-local').Strategy
 
 const Nft = require('./models/nfts')
 const User = require('./models/user')
-const nftData = require('./utilities/nftData')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 3003
@@ -28,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
-app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -92,23 +89,6 @@ app.post('/api/v1/nfts/login', passport.authenticate('local', {
     res.redirect('/api/v1/nfts')
 })
 
-
-// {
-//     const { username, password } = req.body
-//     const user = await User.findOne({ username }).lean()
-
-//     if (!user) {
-//         return res.json({ status: 'error', error: 'Invalid Username or Password'})
-//     }
-
-//     if (await bcrypt.compare(password, user.password)) {
-//         const token = jwt.sign({ id: user._id, username: user.username }, secret)
-//         res.json({ status: 'ok'})
-//     }
-
-//     res.json({ status: 'error', error: 'Invalid Username or Password' })
-// })
-
 // USER ROUTE 
 app.get('/api/v1/nfts/register', (req, res) => {
     res.render('Register')
@@ -149,8 +129,6 @@ app.get('/api/v1/nfts/profile', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/
 })
 
 app.get('/api/v1/nfts/:id/receipt', async (req, res) => {
-    // User.updateOne(req.user._id, { $push: { purchased: req.params.id  } })
-    
     Nft.findById(req.params.id, (errOne, foundNft) => {
         if (errOne) throw new Error(errOne)
         User.updateOne({ _id: req.user._id }, { $push: { purchased: { name: foundNft.name, img: foundNft.img, price: foundNft.price } } }, (errTwo, foundUser) => {

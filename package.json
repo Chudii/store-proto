@@ -22,14 +22,12 @@
     "express-flash": "^0.0.2",
     "express-react-views": "^0.11.0",
     "express-session": "^1.17.3",
-    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.5.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^6.1.0"
+    "react-dom": "^16.14.0"
   }
 }
