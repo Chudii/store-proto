@@ -48,8 +48,13 @@ class Profile extends React.Component {
                                     Date Joined: {`${user.joined.getMonth() + 1}/${user.joined.getDate()}/${user.joined.getFullYear()}`}
                                 </h3>
                                 <h3 className='purchased'>
-                                    Purchased NFTs: 
+                                    Purchased NFTs:
                                 </h3>
+                                <div className='nfts'>
+                                    {user.purchased.map((purchasedNft) => {
+                                        return <img src={purchasedNft.img}></img>
+                                    })}
+                                </div>
                             </div>
                             <div className='buttons'>
                                 <a href='/api/v1/nfts/logout'><button>Logout</button></a>

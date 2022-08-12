@@ -153,7 +153,7 @@ app.get('/api/v1/nfts/:id/receipt', async (req, res) => {
     
     Nft.findById(req.params.id, (errOne, foundNft) => {
         if (errOne) throw new Error(errOne)
-        User.updateOne({ _id: req.user._id }, { $push: { purchased: foundNft } }, (errTwo, foundUser) => {
+        User.updateOne({ _id: req.user._id }, { $push: { purchased: { name: foundNft.name, img: foundNft.img, price: foundNft.price } } }, (errTwo, foundUser) => {
             if (errTwo) throw new Error(errTwo)
             res.render('Receipt', {
                 nft: foundNft,
@@ -165,8 +165,12 @@ app.get('/api/v1/nfts/:id/receipt', async (req, res) => {
 })
 
 app.put('/api/v1/nfts/:id/checkout', (req, res) => {
-    Nft.findByIdAndUpdate(req.params.id, { $inc: { quantity: -(req.body.quantity) } },(err, foundNft) => {
-        res.redirect(`/api/v1/nfts/${req.params.id}/receipt`)
+    Nft.findByIdAndUpdate(req.params.id, { $inc: { quantity: -(req.body.quantity) } },(errOne, foundNft) => {
+        if (errOne) throw new Error(errOne)
+        User.updateOne({ _id: req.user._id }, { $push: { itemAmount: { quantity: req.body.quantity } } }, (errTwo, foundUser) => {
+            if (errTwo) throw new Error(errTwo)
+            res.redirect(`/api/v1/nfts/${req.params.id}/receipt`)
+        })   
     })
 })
 

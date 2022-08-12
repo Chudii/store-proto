@@ -113,9 +113,24 @@ nav {
     width: 28vw;
     display: flex;
     flex-direction: column;
+    
     align-content: center;
     justify-content: space-around;
     background: linear-gradient(0deg, rgba(194,194,194,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.shop img {
+    width: 5vw;
+    border: 0.5px solid black;
+}
+
+.nfts {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1vh;
+    row-gap: 1vh;
+    padding-bottom: 4vh;
 }
 
 .product img {
@@ -163,8 +178,7 @@ nav {
     background: linear-gradient(0deg, rgba(48,48,48,1) 0%, rgba(105,105,105,1) 100%);
     color: white;
     display: flex;
-    position: absolute;
-    bottom: -35vh;
+    margin-top: 10vh;
 }
 
 .footer div {
