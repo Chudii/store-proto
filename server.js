@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const connectEnsureLogin = require('connect-ensure-login')
 const LocalStrategy = require('passport-local').Strategy
 
@@ -25,6 +26,8 @@ mongoose.connection.once("open", () => {
     console.log("connected to mongo");
 });
 
+app.set('trust proxy', 1)
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
@@ -36,10 +39,11 @@ app.use(cookieSession({
     keys: ['x', 'y']
 }))
 app.use(session({
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI, touchAfter: 24 * 3600 }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 }
+    cookie: { secure: true, maxAge: 60 * 60 * 1000 }
 }))
 app.use(passport.initialize())
 app.use(passport.session())
