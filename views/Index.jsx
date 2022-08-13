@@ -11,8 +11,9 @@ class Index extends React.Component {
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>NFT Index</title>
+                <title>Medusa's Lair | Index</title>
                 <link rel="stylesheet" href="/css/index.css"></link>
+                <link rel="shortcut icon" type="image/x-icon" href="/images/medusa-head-icon.png" />
             </head>
             <body background='/images/cave-background.jpg'>
                 <div>
