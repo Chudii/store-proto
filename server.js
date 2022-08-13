@@ -25,16 +25,16 @@ mongoose.connection.once("open", () => {
     console.log("connected to mongo");
 });
 
-app.keys = ['newest secret key', 'older secret key']
-
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(flash())
 app.use(cookieParser())
-app.use(cookieSession())
-app.use(session(app))
+app.use(cookieSession({
+    name: 'session',
+    keys: ['x', 'y']
+}))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
