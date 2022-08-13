@@ -34,6 +34,7 @@ app.use(express.static('public'))
 app.use(flash())
 app.use(cookieParser())
 app.use(cookieSession())
+app.use(session(app))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
