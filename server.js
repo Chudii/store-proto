@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
 const bodyParser = require('body-parser')
 const passport = require('passport')
+const flash = require('connect-flash')
 const session = require('express-session')
 const connectEnsureLogin = require('connect-ensure-login')
 const LocalStrategy = require('passport-local').Strategy
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
+app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -43,13 +45,21 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-passport.use(new LocalStrategy(
-    function(username, password, done) {
+passport.use('login', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+    },
+    function(req, username, password, done) {
         User.findOne({ username: username }, async function (err, user) {
-            if (err) { return done(err) }
-            if (!user) { return done(null, false, { message: `User not found.` }) }
+            // if (err) { return done(err) }
+            if (!user) { 
+                return done(null, false, req.flash('loginMessage', 'No user found.')) 
+            }
             if (await bcrypt.compare(password, user.password)) {
                 return done(null, user)
+            } else {
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'))
             }
         })
     }
@@ -78,12 +88,13 @@ app.get('/api/v1/nfts/new', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/logi
 
 // USER ROUTE
 app.get('/api/v1/nfts/login', (req, res) => {
-    res.render('Login')
+    res.render('Login', { message: req.flash('loginMessage') })
 })
 
 // USER ROUTE
-app.post('/api/v1/nfts/login', passport.authenticate('local', {
+app.post('/api/v1/nfts/login', passport.authenticate('login', {
         failureRedirect: '/api/v1/nfts/login',
+        failureFlash: true
     }
 ), (req, res) => {
     res.redirect('/api/v1/nfts')

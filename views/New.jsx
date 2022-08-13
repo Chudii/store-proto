@@ -42,7 +42,7 @@ class New extends React.Component {
                         <div className='shop'>
                             <form action='/api/v1/nfts' method="POST">
                                 Name: <input className='inputBars' type='text' name='name'/><br/>
-                                Quantity <input className='inputBars' type='number' name='quantity'/><br/>
+                                Quantity <input className='inputBars' type='number' name='quantity' min={0} max={1000}/><br/>
                                 Image <input className='inputBars' type='text' name='img'/><br/>
                                 Price <input className='inputBars' type='number' name='price'/><br/>
                                 <input className='new' type='submit' name='' value='Mint New NFT'/>

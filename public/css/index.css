@@ -161,6 +161,7 @@ nav {
 }
 
 .product img {
+    border: 0.5px solid black;
     height: 12vw;
     object-fit: contain;
 }

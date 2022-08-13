@@ -2,6 +2,8 @@ const React = require('react')
 
 class Login extends React.Component {
     render() {
+        const { message } = this.props
+
         return (
             <html lang="en">
             <head>
@@ -25,6 +27,7 @@ class Login extends React.Component {
                             <h3>The world's first reimagined NFT marketplace.</h3>
                         </div>
                     </header>
+                    {(message.length > 0) ? <p className='errorMessage'>{message}</p> : null }
                     <div className="middle">
                         <div className='shop'>
                             <h2>Sign In</h2>

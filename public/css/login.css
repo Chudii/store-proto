@@ -53,6 +53,15 @@ header img {
     margin: auto;
 }
 
+.errorMessage {
+    width: 99.5%;
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    color: red;
+    font-weight: 500;
+}
+
 .shop {
     height: 34vh;
     margin-top: -10vh;
