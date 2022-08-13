@@ -76,6 +76,10 @@ passport.use('login', new LocalStrategy({
     }
 ))
 
+app.get('/', (req, res) => {
+    res.redirect(`/api/v1/nfts/login`)
+})
+
 app.get('/api/v1/nfts', connectEnsureLogin.ensureLoggedIn('/api/v1/nfts/login'), (req, res) => {
     Nft.find({}, (err, allNfts) => {
         res.render('Index', {
