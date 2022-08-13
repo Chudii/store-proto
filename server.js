@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const bcrypt = require('bcryptjs')
 const bodyParser = require('body-parser')
 const passport = require('passport')
+const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -30,7 +31,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use(flash())
 app.use(cookieParser())
-app.use(express.cookieSession())
+app.use(cookieSession())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
