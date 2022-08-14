@@ -222,7 +222,7 @@ app.put('/api/v1/nfts/:id', (req, res) => {
     Nft.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     }, (err, nft) => {
-        res.redirect(`/api/v1/nfts`)
+        res.redirect(`/api/v1/nfts/${req.params.id}`)
     })
 })
 

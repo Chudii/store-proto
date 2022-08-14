@@ -50,7 +50,7 @@ class Show extends React.Component {
                                     Best Offer: ${nft.price}
                                 </h3>
                                 <h3 className='stock'>
-                                    Stock Remaining: {nft.quantity}
+                                    Stock Remaining: {nft.quantity ? `${nft.quantity}` : `OUT OF STOCK`}
                                 </h3>
                                 <div className='buttons'>
                                     <div className='buttonDiv'>
@@ -65,15 +65,16 @@ class Show extends React.Component {
                                             </a>
                                         </form>
                                     </div>
-                                    <div className='buttonDiv'>
-                                        <a href={`/api/v1/nfts/${nft.id}/checkout`}>
-                                            <button className='productButton'>Buy Now</button>
-                                        </a>
-                                    </div>
-                                    
-                                    
-                                    
-                                    
+                                    {nft.quantity ? 
+                                        <>
+                                            <div className='buttonDiv'>
+                                                <a href={`/api/v1/nfts/${nft.id}/checkout`}>
+                                                    <button className='productButton'>Buy Now</button>
+                                                </a>
+                                            </div>
+                                        </>
+                                        : null
+                                    }
                                 </div>
                             </div>
                         </div>

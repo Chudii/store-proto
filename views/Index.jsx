@@ -78,14 +78,25 @@ class Index extends React.Component {
                                             <h3 className='productPrice'>
                                                 Best Offer: ${nft.price}
                                             </h3>
-                                            <h3 className='stock'>
-                                                Stock Remaining: {nft.quantity}
-                                            </h3>
-                                            <a className='buyLink' href={`/api/v1/nfts/${nft.id}/checkout`}>
-                                                <button className='productButton'>Buy Now</button>
-                                            </a>
-                                            
+                                            {nft.quantity ?
+                                                <>
+                                                    <h3 className='stock'>
+                                                        Stock Remaining: {nft.quantity}
+                                                    </h3>
+                                                    <a className='buyLink' href={`/api/v1/nfts/${nft.id}/checkout`}>
+                                                        <button className='productButton'>Buy Now</button>
+                                                    </a>
+                                                </>
+                                                : <>
+                                                    <h3 className='stock'>
+                                                        OUT OF STOCK
+                                                    </h3>
+                                                </>
+                                        
+                                            }             
                                         </div>
+
+
 
                                     )
                                 })}

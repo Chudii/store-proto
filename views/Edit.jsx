@@ -43,9 +43,9 @@ class Edit extends React.Component {
                         <div className='shop'>
                             <form action={`/api/v1/nfts/${nft.id}?_method=PUT`} method="POST">
                                 Name: <input className='inputBars' type='text' name='name' value={nft.name}/><br/>
-                                Quantity <input className='inputBars' type='number' name='quantity' value={nft.quantity}/><br/>
+                                Quantity <input className='inputBars' type='number' name='quantity' min={0} value={nft.quantity}/><br/>
                                 Image <input className='inputBars' type='text' name='img' value={nft.img}/><br/>
-                                Price <input className='inputBars' type='number' name='price' value={nft.price}/><br/>
+                                Price <input className='inputBars' type='number' name='price' min={0} value={nft.price}/><br/>
                                 <input className='edit' type='submit' name='' value='Edit NFT'/>
                             </form>
                         </div>
