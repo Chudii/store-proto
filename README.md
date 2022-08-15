@@ -8,8 +8,38 @@ Given the task of making a prototype for a store for the my second project for P
 </p>
 
 
-### Medusa's Lair
+## Medusa's Lair
 ### The world's first reimagined NFT marketplace.
+
+---
+
+## User Login Page
+
+[![Medusa's Lair](/public/images/medusas-lair-login.jpg)](https://youtu.be/Ss897seugBs)
+
+### CLICK the image above to watch a video on how the site works & looks. 
+
+---
+
+DISCLAIMER: The lighting in the video is a bit off, but I will show images below so you can get a better visualization of what the site looks like. (& I highly recommend you clone and check it out firsthand!)
+
+## NFT Index Page
+
+![Index](/public/images/medusas-lair-index.jpg)
+
+## NFT Show Page
+
+![Show](/public/images/medusas-lair-show.jpg)
+
+## User Profile Page
+
+![Profile](/public/images/medusas-lair-profile.jpg)
+
+## NFT Receipt Page
+
+![Receipt](/public/images/medusas-lair-receipt.jpg)
+
+---
 
 ## Getting Started
 
@@ -22,7 +52,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installation
 
-Fork &/or Clone down this repository. You will need `node` installed.
+Clone this repository. You will need `node` installed.
 ```
 git clone https://github.com/Chudii/store-proto.git
 ```
@@ -37,6 +67,32 @@ npm start
 To Visit App: 
 `localhost:3000/api/v1/nfts`
 
+---
+
+## Want to Contribute? 
+
+(Fork &) Clone this repository. You will need `node` installed.
+
+```
+git clone https://github.com/Chudii/store-proto.git
+```
+Then install the NPM packages
+```
+npm install
+```
+Use this command to create a new branch:
+```
+git checkout -b <insert-your-branch-name>
+```
+And don't forget after you've made any changes to...
+```
+git add .
+git commit -m '<insert-commit-message>'
+git push origin <insert-your-branch-name>
+```
+
+---
+
 ## Built With
 * [express](https://www.npmjs.com/package/express) - web framework for Node
 * [React](https://reactjs.org/) - library template engine
@@ -45,7 +101,7 @@ To Visit App:
 * [mongoose](https://mongoosejs.com/) - MongoDB object modeling tool designed to work in an asynchronous environment
 * [connect-mongo](https://www.npmjs.com/package/connect-mongo) - MongoDB session store for Connect
 
-## Routes
+## RESTFUL Routes
 
    VERB 		 | 		  PATH 		 |  	 DESCRIPTION
 ------------ | ------------- | -------------------
