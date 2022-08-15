@@ -8,7 +8,7 @@ Given the task of making a prototype for a store for the my second project for P
 </p>
 
 
-## Medusa's Lair
+### Medusa's Lair
 ### The world's first reimagined NFT marketplace.
 
 ---
