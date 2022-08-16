@@ -47,8 +47,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisities 
 
-* NodeJS & NPM
-* MongoDB
+[![NodeJs](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+
+[![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+
+[![MongoDB](https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white)]()
 
 ## Installation
 
@@ -132,7 +135,9 @@ DELETE | /api/v1/nfts/:id | delete an NFT |
 
 ## Contact
 
-Chudi Ibida - [LinkedIn](https://www.linkedin.com/in/chudi-ibida/), [GitHub](https://github.com/Chudii)
+[![LinkedIn](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chudi-ibida/)
+
+[![GitHub](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Chudii)
 
 
 Project Link - [https://github.com/Chudii/store-proto](https://github.com/Chudii/store-proto)
