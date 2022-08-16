@@ -132,7 +132,7 @@ DELETE | /api/v1/nfts/:id | delete an NFT |
 
 ## Contact
 
-Chudi Ibida - [LinkedIn](https://www.linkedin.com/in/chudi-ibida/), [GitHub](https://github.com/Chudii/store-proto)
+Chudi Ibida - [LinkedIn](https://www.linkedin.com/in/chudi-ibida/), [GitHub](https://github.com/Chudii)
 
 
 Project Link - [https://github.com/Chudii/store-proto](https://github.com/Chudii/store-proto)
