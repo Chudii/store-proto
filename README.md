@@ -118,6 +118,7 @@ GET | /api/v1/nfts/profile | profile page |
 GET | /api/v1/nfts/logout | logout route |
 GET | /api/v1/nfts/:id/receipt | receipt page | 
 POST | /api/v1/nfts/login | add login details |
+POST | /api/v1/nfts/register | registers a user |
 POST | /api/v1/nfts/ | add a NFT |
 PUT | /api/v1/nfts/:id | edit/update an NFT |
 PUT | /api/v1/nfts/:id/checkout | update NFTs & profile data |
