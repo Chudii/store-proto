@@ -59,13 +59,17 @@ Clone this repository. You will need `node` installed.
 ```
 git clone https://github.com/Chudii/store-proto.git
 ```
+Go to the project directory
+```
+cd <project-name>
+```
 Then install the NPM packages
 ```
 npm install
 ```
 To Start Server:
 ```
-npm start
+npm run start
 ```
 To Visit App: 
 `localhost:3000/api/v1/nfts`
@@ -78,6 +82,10 @@ To Visit App:
 
 ```
 git clone https://github.com/Chudii/store-proto.git
+```
+Go to the project directory
+```
+cd <project-name>
 ```
 Then install the NPM packages
 ```
@@ -93,6 +101,18 @@ git add .
 git commit -m '<insert-commit-message>'
 git push origin <insert-your-branch-name>
 ```
+To Start Server:
+```
+npm run start
+```
+To Visit App: 
+`localhost:3000/api/v1/nfts`
+
+### Environmental Variables
+
+To run this project, you will need to add the following environment variables to your `.env` file
+
+A `PORT`, `MONGO_URI`, and `SESSION_SECRET`.
 
 ---
 
