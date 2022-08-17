@@ -21,7 +21,7 @@ Given the task of making a prototype for a store for the my second project for P
 
 ---
 
-DISCLAIMER: The lighting in the video is a bit off, but I will show images below so you can get a better visualization of what the site looks like. (& I highly recommend you clone and check it out firsthand!)
+DISCLAIMER: The lighting in the video is a bit off, but I will show images below so you can get a better visualization of what the site looks like. (& I highly recommend you visit the current deployed environment with with Heroku!)
 
 ## NFT Index Page
 
